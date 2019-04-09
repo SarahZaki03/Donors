@@ -1,5 +1,0 @@
-Tables I think we will need:
-
-caseTable: caseid , name , status , address
-statusTable: statusid , statusname -> this is a static table
-charitableOrganization: id - name - address

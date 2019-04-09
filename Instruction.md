@@ -9,3 +9,6 @@ installing instructions
 3- php artisan key:generate
 4- Change .env file to fit your database credentials
 
+
+
+Feel free to contribute

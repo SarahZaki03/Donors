@@ -1,0 +1,29 @@
+Tables I think we will need:
+
+
+Case :
+	id
+	name
+	description
+	status_id ( refer to status table )
+	address_id ( refer to address table )
+	user_id
+	done->default(false)
+
+status :
+	id
+	name
+
+
+Organization :
+	id
+	name
+	address_id
+	owner_id ( refer to users table )
+
+Address :
+	id
+	state:
+	region:
+	street:
+	building:
