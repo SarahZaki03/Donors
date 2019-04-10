@@ -21,7 +21,7 @@ class CreateCasesTable extends Migration
             $table->unsignedInteger('status_id');
             $table->unsignedInteger('address_id');
             $table->unsignedInteger('user_id');
-            $table->boolen('done')->default(false);
+            $table->boolean('done')->default(false);
             $table->timestamps();
         });
     }
