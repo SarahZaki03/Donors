@@ -19,6 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', function () { return view('adminTemplate'); });
+Route::get('/admin', function() { return view('adminTemplate');  });
+
+Route::get('/cases', 'Cases@index');
+
+Route::get('/delete/{id}', 'Cases@deleteCase');
 
 Route::get('/test', 'TestController@index');
