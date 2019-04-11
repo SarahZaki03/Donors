@@ -17,12 +17,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', function() { return view('adminTemplate');  });
 
-Route::get('/cases', 'Cases@index');
+Route::get('/admin/cases', 'CaseController@index');
+Route::get('/admin/cases/create', 'CaseController@create');
+Route::post('/admin/cases', 'CaseController@store');
 
-Route::get('/delete/{id}', 'Cases@deleteCase');
+Route::delete('/admin/cases/{case}/delete', 'CaseController@destroy');
 
-Route::get('/test', 'TestController@index');
+Route::get('/admin/test', 'TestController@index');

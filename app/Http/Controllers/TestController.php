@@ -35,7 +35,7 @@ class TestController extends Controller {
                         'color' => 'success'
                 ]
         ];
-        return view('test')->with($data);
+        return view('admin.test')->with($data);
     }
 
 }

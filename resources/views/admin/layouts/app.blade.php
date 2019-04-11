@@ -57,10 +57,10 @@ desired effect
 <div class="wrapper">
 
   <!-- Main Header --> 
-  @include('header')
+  @include('admin.layouts.header')
 
   <!-- Sidebar -->
-  @include('sidebar')
+  @include('admin.layouts.sidebar')
  
 
   <!-- Content Wrapper. Contains page content -->
@@ -92,7 +92,7 @@ desired effect
   <!-- /.content-wrapper -->
 
   <!-- Footer -->
-  @include('footer')
+  @include('admin.layouts.footer')
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
