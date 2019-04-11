@@ -79,12 +79,13 @@ desired effect
 
     <!-- Main content -->
     <section class="content container-fluid">
-
+	
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
-		<!-- Your Page Content Here -->
             @yield('content')
+			
+			
     </section>
     <!-- /.content -->
   </div>
