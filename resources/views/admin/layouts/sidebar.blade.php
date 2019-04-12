@@ -10,7 +10,7 @@
           <img src="{{ asset('AdminLTE/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Administration Page</p>
+          <p>{{ auth()->user()->name }}</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -30,7 +30,7 @@
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">HEADER</li>
+        <li class="header">Control Database tables</li>
         <!-- Optionally, you can add icons to the links -->
 		
         <li class="active"><a href="/admin"><i class="fa fa-link"></i> <span>Admin Page</span></a></li>
