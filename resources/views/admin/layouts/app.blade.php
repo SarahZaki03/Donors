@@ -83,9 +83,11 @@ desired effect
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
-            @yield('content')
-			
-			
+          @yield('content')
+          @include('admin.layouts.errors')
+          
+			    
+			     
     </section>
     <!-- /.content -->
   </div>

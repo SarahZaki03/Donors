@@ -7,33 +7,28 @@ use Illuminate\Http\Request;
 
 class TestController extends Controller {
 
+    public function __construct() {
+        return $this->middleware('admin');    
+    }
+    
+
     public function index() {
         $data['tasks'] = [
-                [
-                        'name' => 'Design New Dashboard',
-                        'progress' => '87',
-                        'color' => 'danger'
-                ],
-                [
-                        'name' => 'Create Home Page',
-                        'progress' => '76',
-                        'color' => 'warning'
-                ],
-                [
-                        'name' => 'Some Other Task',
-                        'progress' => '32',
-                        'color' => 'success'
-                ],
-                [
-                        'name' => 'Start Building Website',
-                        'progress' => '56',
-                        'color' => 'info'
-                ],
-                [
-                        'name' => 'Develop an Awesome Algorithm',
-                        'progress' => '10',
-                        'color' => 'success'
-                ]
+            [
+                    'name' => 'Create Home Page',
+                    'progress' => '76',
+                    'color' => 'sucess'
+            ],
+            [
+                    'name' => 'Add validations to each form',
+                    'progress' => '0',
+                    'color' => 'warning'
+            ],
+            [
+                    'name' => 'Authentications with roles',
+                    'progress' => '0',
+                    'color' => 'info'
+            ],
         ];
         return view('admin.test')->with($data);
     }

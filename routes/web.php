@@ -19,14 +19,17 @@ Auth::routes();
 
 
 
+Route::group(['middleware' => ['admin'], 'prefix' => '/admin'], function () {
+    Route::get('/', 'TestController@index');
+
+	Route::get('cases', 'CaseController@index');
+	Route::get('cases/create', 'CaseController@create');
+	Route::post('cases', 'CaseController@store');
+
+	Route::delete('cases/{case}/delete', 'CaseController@destroy');
+
+});
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', function() { return view('adminTemplate');  });
-
-Route::get('/admin/cases', 'CaseController@index');
-Route::get('/admin/cases/create', 'CaseController@create');
-Route::post('/admin/cases', 'CaseController@store');
-
-Route::delete('/admin/cases/{case}/delete', 'CaseController@destroy');
-
-Route::get('/admin/test', 'TestController@index');

@@ -6,10 +6,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Cases;
+use App\Address;
 use App\Status;
 
 class CaseController extends Controller
 {
+
+    public function __construct() {
+        return $this->middleware('admin');    
+    }
+    
+
+
     public function index() {
 	
         $cases = Cases::all();
@@ -26,12 +34,18 @@ class CaseController extends Controller
 
     public function store(Request $request) {
 
-        // should solve address storing problem 
+        $address = Address::create([
+            'state' => $request->state,
+            'region' => $request->region,
+            'street' => $request->street,
+            'building' => $request->building,
+        ]);
+
         Cases::create([
             'name' => $request->name,
             'description' => $request->description,
             'status_id' => $request->status_id,
-            'address_id' => 3,
+            'address_id' => $address->id,
             'user_id' => auth()->id(),
         ]);
 
