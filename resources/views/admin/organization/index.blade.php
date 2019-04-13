@@ -10,9 +10,9 @@
                 <tr>
                     <th>Name</th> 
                     <th>Address: State</th> 
-					<th>Address: Region</th>
-					<th>Address: Street</th>
-					<th>Address: Building</th>
+					<th>Region</th>
+					<th>Street</th>
+					<th>Building</th>
 					<th>Edit</th>
 					<th>Delete</th>
                 </tr>
@@ -21,10 +21,10 @@
     		@foreach($org as $orga)
                 <tr>
                     <td>{{ $orga->name }}</td>
-                    <td>{{ $orga->address_id }}</td>
-					<td></td>
-					<td></td>
-					<td></td>
+                    <td>{{ $orga->address->state }}</td>
+					<td>{{ $orga->address->region }}</td>
+					<td>{{ $orga->address->street }}</td>
+					<td>{{ $orga->address->building }}</td>
 					<td><form action="/admin/org/{{$orga->id}}/edit" method="POST">
                             {{ csrf_field() }}
                             <button type="submit" class="btn btn-primary">Edit</button>

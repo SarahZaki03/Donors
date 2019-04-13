@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Organization;
+use App\Address; 
+use Illuminate\Support\Facades\DB;
 
 class OrganizationController extends Controller
 {
@@ -22,17 +24,24 @@ class OrganizationController extends Controller
 	
 	 public function store(Request $request)
     {
-      /*$request->validate([
+       $request->validate([
         'name'=>'required',
         'state'=> 'required',
         'region' => 'required',
 		'street' => 'required',
 		'building' => 'required',
-      ]);*/
+      ]); 
+	  
+	  $address = Address::create([
+            'state' => $request->state,
+            'region' => $request->region,
+            'street' => $request->street,
+            'building' => $request->building,
+        ]);
 	  
 	  Organization::create([
             'name' => $request->name,
-            'address_id' => 3,
+            'address_id' => $address->id,
             'owner_id' => auth()->id()
       ]);
 		
@@ -52,12 +61,25 @@ class OrganizationController extends Controller
 	public function update(Request $request, $id)
 	{
 		  $request->validate([
-			'name'=>'required'
-		  ]);
+			'name'=>'required',
+			'state'=> 'required',
+			'region' => 'required',
+			'street' => 'required',
+			'building' => 'required',
+		  ]); 
 
 		  $org = Organization::find($id);
 		  $org->name = $request->get('name');
 		  $org->save();
+		   
+		DB::table('addresses')
+		->updateOrInsert(
+			['id' => $request->get('address_id')],
+			['state' => $request->get('state') ,
+			'region' =>$request->get('region'), 
+			'street'=>$request->get('street'),
+			'building'=>$request->get('building')]
+		);
 
 		return redirect('/admin/org');
 	}
