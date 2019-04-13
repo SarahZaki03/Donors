@@ -5,6 +5,7 @@ use App\Cases;
 use App\Status;
 use App\Address;
 
+
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
@@ -29,8 +30,6 @@ $factory->define(User::class, function (Faker $faker) {
     ];
 });
 
-
-
 $factory->define(Cases::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
@@ -48,7 +47,7 @@ $factory->define(Cases::class, function (Faker $faker) {
     ];
 });
 
-
+ 
 $factory->define(Status::class, function (Faker $faker) {
     return [
         'name' => $faker->name,

@@ -28,29 +28,19 @@ Route::group(['middleware' => ['admin'], 'prefix' => '/admin'], function () {
 
 	Route::delete('cases/{case}/delete', 'CaseController@destroy');
 
-/*----------------------------------------------------------*/
-/* --------------- Start Organization Part ---------------- */
+	/*----------------------------------------------------------*/
+	/* --------------- Start Organization Part ---------------- */
 
-Route::get('/admin/org', 'OrganizationController@index');
-Route::get('/admin/org/create', 'OrganizationController@create');
-Route::post('/admin/org', 'OrganizationController@store');
-Route::post('/admin/org/{org}/edit', 'OrganizationController@edit');
-Route::post('/admin/org/{org}/update', 'OrganizationController@update');
-Route::delete('/admin/org/{org}/delete', 'OrganizationController@destroy');
-
-
-/* --------------- End Organization Part ----------------- */
-/*---------------------------------------------------------*/
+	Route::get('org', 'OrganizationController@index');
+	Route::get('org/create', 'OrganizationController@create');
+	Route::post('org', 'OrganizationController@store');
+	Route::post('org/{org}/edit', 'OrganizationController@edit');
+	Route::post('org/{org}/update', 'OrganizationController@update');
+	Route::delete('org/{org}/delete', 'OrganizationController@destroy');
 
 
-
-
-
-
-
-
- 
-
+	/* --------------- End Organization Part ----------------- */
+	/*---------------------------------------------------------*/
  
 });
 
