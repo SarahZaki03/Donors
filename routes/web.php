@@ -19,7 +19,7 @@ Auth::routes();
 
 
 
-Route::group(['middleware' => ['admin'], 'prefix' => '/admin'], function () {
+Route::group(['middleware' => ['admin'],'namespace' => 'Admin', 'prefix' => '/admin'], function () {
     Route::get('/', 'TestController@index');
 
 	Route::get('cases', 'CaseController@index');

@@ -1,7 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+
+use App\Http\Requests\OrganizationRequest;
 use Illuminate\Http\Request;
 use App\Organization;
 use App\Address; 
@@ -22,15 +25,9 @@ class OrganizationController extends Controller
 	   return view('admin.organization.create');
 	}
 	
-	 public function store(Request $request)
+	 public function store(OrganizationRequest $request)
     {
-       $request->validate([
-        'name'=>'required',
-        'state'=> 'required',
-        'region' => 'required',
-		'street' => 'required',
-		'building' => 'required',
-      ]); 
+
 	  
 	  $address = Address::create([
             'state' => $request->state,

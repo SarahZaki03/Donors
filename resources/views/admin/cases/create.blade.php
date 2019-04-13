@@ -7,15 +7,15 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="name" placeholder="Enter the name" class="form-control" required="">
+                    <input type="text" name="name" placeholder="Enter the name" class="form-control" >
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea class="form-control" name="description" required></textarea>
+                    <textarea class="form-control" name="description" ></textarea>
                 </div>
                 <div class="form-group">
                     <label>Status</label>
-                    <select name="status_id" class="form-control" required>
+                    <select name="status_id" class="form-control">
                         <option>Select Option</option>
                         @foreach($statuses as $status)
                             <option value="{{ $status->id }}">{{ $status->name}}</option>

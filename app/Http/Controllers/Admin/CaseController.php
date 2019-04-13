@@ -1,9 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
+use App\Http\Requests\CaseRequest;
 
 use App\Cases;
 use App\Address;
@@ -32,7 +36,7 @@ class CaseController extends Controller
     }
     
 
-    public function store(Request $request) {
+    public function store(CaseRequest $request) {
 
         $address = Address::create([
             'state' => $request->state,

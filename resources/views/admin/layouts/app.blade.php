@@ -32,6 +32,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+  <style type="text/css">
+    .pops {
+          position:fixed;
+          right:25px;
+          bottom:25px;
+      }
+  </style>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -174,7 +182,11 @@ desired effect
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
+<script type="text/javascript">
+   function hide() {
+    document.getElementById("pops").style.display = 'none';
+  }
+</script>
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 3 -->

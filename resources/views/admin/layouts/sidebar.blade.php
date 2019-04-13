@@ -33,16 +33,26 @@
         <li class="header">Control Database tables</li>
         <!-- Optionally, you can add icons to the links -->
 		
-        <li class="active"><a href="/admin"><i class="fa fa-link"></i> <span>Admin Page</span></a></li>
-        <li><a href="/admin/cases"><i class="fa fa-link"></i> <span>Cases</span></a></li> 
-		<li class="treeview">
+        <li class="active"><a href="/admin"><i class="fa fa-link"></i> <span>Home Page</span></a></li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>Cases</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/admin/cases">All Cases</a></li>
+            <li><a href="/admin/cases/create">Create</a></li>
+          </ul>
+        </li>
+		    <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Organization</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/admin/org">Display</a></li>
+            <li><a href="/admin/org">All Organization</a></li>
             <li><a href="/admin/org/create">Create</a></li>
           </ul>
         </li>
