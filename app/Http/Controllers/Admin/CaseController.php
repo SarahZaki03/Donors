@@ -56,6 +56,41 @@ class CaseController extends Controller
         return redirect('/admin/cases');
     }
     
+	 public function edit($id)
+    {
+        $case = Cases::find($id);
+		$statuses = Status::all();
+        
+		return view('admin.cases.edit', compact('case','statuses'));
+    }
+	
+	public function update(Request $request, $id)
+	{
+		  $request->validate([
+			'name'=>'required',
+			'state'=> 'required',
+			'region' => 'required',
+			'street' => 'required',
+			'building' => 'required',
+		  ]); 
+
+		  $case = Cases::find($id);
+		  $case->name = $request->get('name');
+		  $case->description = $request->get('description');
+		  $case->status_id = $request->get('status_id');
+		  $case->save();
+		    
+			DB::table('addresses')
+			->updateOrInsert(
+				['id' => $request->get('address_id')],
+				['state' => $request->get('state') ,
+				'region' =>$request->get('region'), 
+				'street'=>$request->get('street'),
+				'building'=>$request->get('building')]
+			);
+
+		return redirect('/admin/cases');
+	}
 
 	public function destroy(Cases $case) {
 	   

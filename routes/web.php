@@ -20,13 +20,22 @@ Auth::routes();
 
 
 Route::group(['middleware' => ['admin'],'namespace' => 'Admin', 'prefix' => '/admin'], function () {
+
     Route::get('/', 'TestController@index');
 
+	
+	/*---------------------------------------------------*/
+	/* --------------- Start Cases Part ---------------- */
+	
 	Route::get('cases', 'CaseController@index');
 	Route::get('cases/create', 'CaseController@create');
 	Route::post('cases', 'CaseController@store');
-
+	Route::post('cases/{case}/edit', 'CaseController@edit');
+	Route::post('cases/{case}/update', 'CaseController@update');
 	Route::delete('cases/{case}/delete', 'CaseController@destroy');
+	
+	/* --------------- End Cases Part ----------------- */
+	/*--------------------------------------------------*/
 
 	/*----------------------------------------------------------*/
 	/* --------------- Start Organization Part ---------------- */

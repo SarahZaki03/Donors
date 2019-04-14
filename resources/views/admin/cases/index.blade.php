@@ -11,7 +11,8 @@
                     <th>Name</th>
                     <th>Description</th>
                     <th>Address</th>
-                    <th>Status</th>
+					<th>Status</th>
+                    <th>Done</th>
                     <th>Edit</th>
     				<th>Delete</th>
                 </tr>
@@ -27,6 +28,7 @@
                         {{ $case->address->street }} /
                         {{ $case->address->building }}
                     </td>
+					<td>{{ $case->status->name }}</td>
                     <td>
     					@if ($case->done == 1)
     						Done
@@ -34,7 +36,12 @@
     						No
     					@endif
     				</td>
-                    <td>Edit</td>
+                    <td>
+						<form action="/admin/cases/{{ $case->id }}/edit" method="POST">
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-primary">Edit</button>
+                        </form>
+					</td>
     				<td>
                         <form action="/admin/cases/{{$case->id}}/delete" method="POST">
                             {{ csrf_field() }}
