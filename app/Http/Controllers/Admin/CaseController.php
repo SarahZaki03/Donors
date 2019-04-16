@@ -12,6 +12,7 @@ use App\Http\Requests\CaseRequest;
 use App\Cases;
 use App\Address;
 use App\Status;
+use App\Comment;
 
 class CaseController extends Controller
 {
@@ -36,7 +37,10 @@ class CaseController extends Controller
     }
     
 	public function showcase($id){
-		return view('admin.cases.show');
+		$case = Cases::find($id);
+		$comments = Comment::where('case_id',$id)->get();
+	
+		return view('admin.cases.show',compact('case','comments'));
 	}
 
     public function store(CaseRequest $request) {

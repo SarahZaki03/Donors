@@ -21,20 +21,25 @@
           <div class="box box-primary">
             <div class="box-body box-profile">
 
-              <h3 class="profile-username text-center">Case Name</h3>
+              <h3 class="profile-username text-center">{{ $case->name }}</h3>
 
-              <p class="text-muted text-center">Case Status</p>
+              <p class="text-muted text-center">{{ $case->status->name }}</p>
 				<strong><i class="fa fa-book margin-r-5"></i> Description</strong>
 
               <p class="text-muted">
-                B.S. in Computer Science from the University of Tennessee at Knoxville
+               {{ $case->description }}
               </p>
               <ul class="list-group list-group-unbordered">
 				<li class="list-group-item">
-                  <b>Status</b> <a class="pull-right">Emergency</a>
+                  <b>Status</b> <a class="pull-right">{{ $case->status->name }}</a>
                 </li>
 				<li class="list-group-item">
-                  <b>Done</b> <a class="pull-right">No</a>
+                  <b>Done</b> <a class="pull-right">
+					@if ($case->done == 1)
+    						Done
+    					@elseif ($case->done == 0)
+    						No
+    					@endif</a>
                 </li>
               </ul>
               <a href="#" class="btn btn-primary"><b>Follow</b></a>
@@ -58,8 +63,7 @@
                 <div class="post">
                   <div class="user-block">
                         <span class="username">
-                          <a href="#">Registered user name</a>
-                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                          <a href="#">Registered user name</a> 
                         </span> 
                   </div>
                   <!-- /.user-block -->
@@ -67,27 +71,29 @@
 				  <a href="#" class="btn btn-primary" style="margin-left: 50px; margin-top: 20px;"><b>Comment</b></a>
                 </div>
                 <!-- /.post -->
-
+@if($comments->count())
                 <!-- Post -->
+				@foreach($comments as $comment)
                 <div class="post clearfix">
                   <div class="user-block"> 
                         <span class="username">
-                          <a href="#">Sarah Ross</a>
-                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                          <a href="#"> User Name</a> 
                         </span>
-                    <span class="description">Sent you a message - 3 days ago</span>
+                    <span class="description">{{ $comment->created_at }}</span>
                   </div>
                   <!-- /.user-block -->
-                  <p style="margin-left: 50px;">
-                    Lorem ipsum represents a long-held tradition for designers,
-                    typographers and the like. Some people hate it and argue for
-                    its demise, but others ignore the hate as they create awesome
-                    tools to help create filler text for everyone from bacon lovers
-                    to Charlie Sheen fans.
+                  <p style="margin-left: 50px;"> {{ $comment->name }}
                   </p>
                 </div>
+				@endforeach
                 <!-- /.post -->
- 
+ @else
+
+        <p class="text-center">
+             No Comments Yet!  
+        </p>
+
+    @endif
         <!-- /.col -->
       </div>
       <!-- /.row -->
@@ -95,6 +101,5 @@
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-		
+  <!-- /.content-wrapper --> 
 @endsection
