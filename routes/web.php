@@ -29,6 +29,7 @@ Route::group(['middleware' => ['admin'],'namespace' => 'Admin', 'prefix' => '/ad
 	
 	Route::get('cases', 'CaseController@index');
 	Route::get('cases/create', 'CaseController@create');
+	Route::get('cases/{case}/show', 'CaseController@showcase'); // For Comments Part
 	Route::post('cases', 'CaseController@store');
 	Route::post('cases/{case}/edit', 'CaseController@edit');
 	Route::post('cases/{case}/update', 'CaseController@update');

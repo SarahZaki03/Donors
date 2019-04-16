@@ -35,6 +35,9 @@ class CaseController extends Controller
         return view('admin.cases.create',compact('statuses'));    
     }
     
+	public function showcase($id){
+		return view('admin.cases.show');
+	}
 
     public function store(CaseRequest $request) {
 

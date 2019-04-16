@@ -13,6 +13,7 @@
                     <th>Address</th>
 					<th>Status</th>
                     <th>Done</th>
+					<th>Show</th>
                     <th>Edit</th>
     				<th>Delete</th>
                 </tr>
@@ -36,6 +37,7 @@
     						No
     					@endif
     				</td>
+					<td><a href="/admin/cases/{{$case->id}}/show" class="btn btn-primary">Show</a></td>
                     <td>
 						<form action="/admin/cases/{{ $case->id }}/edit" method="POST">
                             {{ csrf_field() }}
